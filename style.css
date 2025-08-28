@@ -11,6 +11,13 @@
 
 li{
   padding: 20px;
+  line-height: 1.9;
+  background: rgb(231, 229, 229);
+  border-radius: 30px;
+  margin: 20px;
+  text-align: center;
+  /* font-size: 15px; */
+  color: rgb(26, 25, 25);
 }
         
 

@@ -1,40 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM Project</title>
+  <style>
+    .container {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .box {
+      width: 100px;
+      height: 100px;
+      background: lightgray;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+    .message {
+      color: blue;
+      margin-top: 10px;
+    }
+  </style>
 </head>
 <body>
 
+  <h1 id="main-title">🎨 DOM Playground</h1>
+
+  <div class="container">
+    <div class="box">1</div>
+    <div class="box">2</div>
+    <div class="box">3</div>
+  </div>
+
+  <p class="message">I am Message 1</p>
+  <p class="message">I am Message 2</p>
+
+  <button id="action-btn">Click Me!</button>
+
+  <script>
 
 
 
 
-    <p class="info">This is paragraph 1</p>
-    <p class="info">This is paragraph 2</p>
-    <p class="info">This is paragraph 3</p>
-    <p class="info">This is paragraph 4</p>
-    <p class="info">This is paragraph 5</p>
-    <p class="info">This is paragraph 6</p>
+// 1. getElementById → id দিয়ে element নেওয়া
+const title = document.getElementById("main-title");
+
+// 2. getElementsByClassName → একাধিক element নেওয়া
+const messages = document.getElementsByClassName("message");
+
+// 3. querySelector → প্রথম matching element নেওয়া
+const firstBox = document.querySelector(".box");
+
+// 4. querySelectorAll → সব matching element নেওয়া
+const allBoxes = document.querySelectorAll(".box");
+
+// Button event
+document.getElementById("action-btn").addEventListener("click", function () {
+  
+  // getElementById → change text
+  title.innerText = "🎉 You Clicked the Button!";
+
+  // getElementsByClassName → change color
+  messages[0].style.display = "none";
+  messages[1].style.display = "none";
+//   messages[0].style.color = "red";
+//   messages[1].style.color = "green";
+
+  // querySelector → change background of first box
+  firstBox.style.background = "orange";
+
+  // querySelectorAll → loop করে সব box change
+  allBoxes.forEach((box, index) => {
+    box.style.background = index % 2 === 0 ? "skyblue" : "lightgreen";
+    box.innerText = "Box " + (index + 1);
+  });
+
+});
 
 
 
 
-<button id="click">Click</button>
+document.getElementById('action-btn').addEventListener('mousemove', function(){
+    title.innerText = "Hello Clicked Double You Have Exciting";
+
+    messages[0].style.background = prompt('Enter')
+    messages[0].style.color = prompt('Enter')
+    messages[1].innerText = 'I am Here For You '
 
 
-<script>
- const para = document.querySelectorAll('.info');
- const btn = document.getElementById('click')
+    firstBox.style.background = 'cyan'
 
- btn.addEventListener('click', function(){
-    for(const form of para){
-        form.style.display = 'none'
-    }
- })
+    allBoxes.forEach((a, b) => {
+        box.style.background = index % 2 === 0 ? 'skyblue' : 'lightgreen';
+        box.innerText = 'Box' + (index + 1)
+    })
+})
 
 
-</script>
+  </script>
 </body>
 </html>
