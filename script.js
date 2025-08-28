@@ -1,7 +1,7 @@
 // I Grabbed The Top Counter
 const copyCount = document.getElementById("copyCount");
 
-// I Cathed Copy Button this button click then counter increase
+// I Catched Copy Button this button click then counter increase
 const copyBtns = document.querySelectorAll(".copy-btn");
 
 // This is side History or Which Time I Pressed The Copy Button Right Side To Show
@@ -16,27 +16,10 @@ copyBtns.forEach((buttons) => {
     count++;
     copyCount.innerText = count;
 
-    // Show Date or Details in Right History
-    const now = new Date();
-    const time = now.toLocaleTimeString();
-    const itemText = buttons.getAttribute("data-title");
-    const li = document.createElement("li");
-    li.style.fontWeight = 'bolder'
-    const br = document.createElement("br");
-    const para = document.createElement('p')
+    const copyText = buttons.getAttribute('data-title')
 
 
-    // Right Side Call History
-    li.innerText = `${itemText}`;
-    para.innerText = `Time: ${time}`
-    historyList.appendChild(li);
-    historyList.appendChild(br)
-    li.appendChild(para)
-
-
-
-    // Show What You Copied
-    alert(`${itemText}`)
+    alert(`Copied: ${copyText}`)
   });
 });
 
@@ -77,12 +60,36 @@ let coinCounts = 100
 callButton.forEach((coin) => {
     coin.addEventListener('click', function(){
         if(coinCounts <= 0){
-            alert('You Have 0 Coin')
+            alert('You Have 0 Coin Minimum 20 Coin Needed')
+            
             return
         }
         coinCounts = coinCounts - 20
         coinCounter.innerText = coinCounts
-    })
+        
+        
+        
+        
+        
+        
+        const now = new Date();
+        const time = now.toLocaleTimeString();
+        const itemText = coin.getAttribute("data-title");
+        const li = document.createElement("li");
+        li.style.fontWeight = 'bolder'
+        const br = document.createElement("br");
+        const para = document.createElement('p')
+        
+        
+        
+        li.innerText = `${itemText}`;
+        para.innerText = `Time: ${time}`
+        historyList.appendChild(li);
+        historyList.appendChild(br)
+        li.appendChild(para)
+        alert(`📞 ${itemText}`)
+        
+      })
 })
 
 
@@ -101,3 +108,35 @@ clearButtons.addEventListener('click', function(){
     item.remove()  // One by One Remove
   }
 })
+
+
+
+
+
+
+
+
+
+
+
+// <p id="text">Hello World</p>
+// <button id="copyBtn">Copy</button>
+
+// const btn = document.getElementById('emergency-copy')
+// const text = document.getElementById('text')
+
+// btn.addEventListener('click', function(){
+//   navigator.clipboard.writeText(text.innerText)
+// })
+
+
+const buttons = document.querySelectorAll('#emergency-copy')
+
+for (const btn of buttons) {
+  btn.addEventListener('click', function(){
+    const parent = btn.closest('.bg-white')       // যেই কার্ডে বাটনটা আছে
+    const number = parent.querySelector('#text').innerText  // ওই কার্ডের number নিলাম
+
+    navigator.clipboard.writeText(number)     // Clipboard এ কপি
+  })
+}
