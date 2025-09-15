@@ -15,3 +15,7 @@ I am Trying to create a `Readme.md` file. and write down.
 4. **Event Delegation** Event delegation is technique for event listener its preformance like 100 listeners adding to 100 buttons you add 1 listener to their parent
 5. prevent default stops the default browser behavior and stopPropagation stops the event from moving up/down the dom tree.
 
+
+
+I Answered this Followed Questions
+
